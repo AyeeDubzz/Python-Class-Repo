@@ -1,0 +1,30 @@
+investment = int(input("Enter your investment amount here (1-50000): "))
+while investment <= 0 or investment >= 50000:
+    print("THIS AMOUNT IS INVALAD! Please enter a value between 1 and 50,000.")
+    investment = int(input("Enter your investment amount here: "))
+
+rate = int(input("Enter your interest rate here (1 - 15): "))
+while rate <= 0 or rate >= 15:
+    print("THIS IS RATE IS INVALAD! Please enter a value between 1 and 15.")
+    rate = int(input("Enter your interest rate here: "))
+
+years = int(input("Enter the number of years that you will be investing: "))
+while years <= 0:
+    print("THIS DURATION IS INVALAD! Enter a value greater than 0.")
+    years = int(input("Please enter the number of years: "))
+
+months = years * 12
+monthly_rate = rate / 12 / 100
+total = investment
+
+for month in range(1, months + 1):
+    interest = total * monthly_rate
+    total += interest
+    if month % 12 == 0:
+        print(f"Year {month // 12}: ${round(total, 2)}")
+
+print(f"Years: {years}")
+print(f"Yearly Interest Rate: {rate}%")
+print(f"Total Investment After Compounding: ${round(total, 2)}")
+
+print("Completed by, Alex Johnson")
