@@ -1,0 +1,50 @@
+def main():
+    grades = []
+    
+    while True:
+        grade = float(input("Enter a grade (-1 to stop): "))
+        if grade == -1:
+            break
+        grades.append(grade)
+    
+    print("\nGrades List:", grades)
+    
+    print("\nRemoving the lowest grade:")
+    lowest_grade = min(grades)
+    grades.pop(grades.index(lowest_grade))
+    print("Updated Grades List:", grades)
+    
+    import random
+    print("\nRemoving a random grade:")
+    random_grade = random.choice(grades)
+    grades.remove(random_grade)
+    print("Updated Grades List:", grades)
+    
+    print("\nEditing a grade:")
+    for i, grade in enumerate(grades, 1):
+        print(f"{i}. {grade}")
+    while True:
+        index_to_edit = int(input("Which grade would you like to edit? (Enter the number): ")) - 1
+        if 0 <= index_to_edit < len(grades):
+            new_grade = float(input("Enter the new grade: "))
+            grades[index_to_edit] = new_grade
+            break
+        else:
+            print("Invalid selection. Try again.")
+    print("Updated Grades List:", grades)
+    
+    print("\nSorting and reversing the list:")
+    grades.sort()
+    grades.reverse()
+    print("Sorted and Reversed Grades List:", grades)
+    
+    print("\nCalculating total and average:")
+    total_grades = sum(grades)
+    average_grade = total_grades / len(grades)
+    print(f"Total of grades: {total_grades}")
+    print(f"Average grade: {average_grade}")
+    
+    print("\nCompleted by, Alex Johnson")
+
+if __name__ == "__main__":
+    main()
