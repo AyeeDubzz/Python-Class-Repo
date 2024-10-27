@@ -1,0 +1,50 @@
+
+def main():
+    student_info = {}
+
+    student_info['Bill Murray'] = {
+        'ID': '1001',
+        'GPA': 3.5,
+        'Credits Completed': 45,
+        'Grades': ['A', 'B+', 'A-']
+    }
+    
+    student_info['Micheal Jordan'] = {
+        'ID': '1002',
+        'GPA': 3.8,
+        'Credits Completed': 60,
+        'Grades': ['A', 'A', 'B+']
+    }
+    
+    print("\nAll Student Information Dictionary:")
+    print(student_info)
+
+    print("\n=== Student Names ===")
+    for student in student_info:
+        print(student)
+
+    print("\n=== Accessing Student Information ===")
+    print("Name\t\tID\tGPA\tCredits Completed\tGrades")
+    
+    for name, details in student_info.items():
+        print(f"{name}\t{details['ID']}\t{details['GPA']}\t{details['Credits Completed']}\t{details['Grades']}")
+
+    print("\n=== Removing a Student (Bill Murray) ===")
+    student_info.pop('Bill Murray')
+    print("\nUpdated Student Information Dictionary:")
+    print(student_info)
+    
+    print("\n=== Accessing GPA Information ===")
+    for name in student_info:
+        print(f"{name}'s GPA: {student_info.get(name)['GPA']}")
+
+    print("\n=== Clearing Student Registry ===")
+    student_info.clear()
+    print("Student registry after clearing:")
+    print(student_info)
+
+    print("\nCompleted by, Alex Johnson")
+
+if __name__ == "__main__":
+    main()
+
