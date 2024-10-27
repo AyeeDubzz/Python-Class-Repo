@@ -1,0 +1,36 @@
+from random import randrange
+
+def get_user_weapon():
+    print("GET READY FOR THE BEST GAME OF ROCK PAPER SCISSORS EVER!")
+    print("Choose your Tool!:")
+    print("1. Rock")
+    print("2. Paper")
+    print("3. Scissors")
+    choice = int(input("What do you choose. Enter 1, 2 or 3: "))
+    return choice
+
+def get_opponent_weapon():
+    return randrange(1, 4)
+
+def determine_winner(user_weapon, opponent_weapon):
+    if user_weapon == opponent_weapon:
+        print("DRAW!")
+    elif (user_weapon == 1 and opponent_weapon == 3) or \
+         (user_weapon == 2 and opponent_weapon == 1) or \
+         (user_weapon == 3 and opponent_weapon == 2):
+        print("WINNER!!")
+    else:
+        print("Loo-hoo-ser-her!")
+
+def main():
+    play_again = "yes"
+    while play_again.lower() == "yes":
+        user_weapon = get_user_weapon()
+        opponent_weapon = get_opponent_weapon()
+        determine_winner(user_weapon, opponent_weapon)
+        play_again = input("Would you like to play again? (yes/no): ")
+
+    print("Completed by, Alex Johnson")
+
+if __name__ == "__main__":
+    main()
