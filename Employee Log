@@ -1,0 +1,33 @@
+import random
+
+def add_employees():
+    print("=" * 35)
+    print("Organization Employee Log")
+    print("=" * 35)
+
+    num_employees = int(input("How many new employees are you adding: "))
+    
+    employees = {}
+
+    for _ in range(num_employees):
+        while True:
+            print("=" * 35)
+            name = input("Enter Employee Name: ").strip()
+            
+            if name.lower() in (key.lower() for key in employees.keys()):
+                print("Error: Employee Already Exists")
+            else:
+                emp_id = random.randint(1, 999)
+                employees[name] = emp_id
+                break
+
+    print("\nCreated User Information")
+    print("=" * 35)
+    for name, emp_id in employees.items():
+        print(f"Created Employee: {name}")
+        print(f"Employee ID: {emp_id}")
+        print("=" * 35)
+    
+    print("Created by, Alex Johnson")
+
+add_employees()
