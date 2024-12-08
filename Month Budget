@@ -1,0 +1,26 @@
+def main():
+    print("Monthly Budget Calculator")
+    while True:
+        try:
+            income = float(input("Income: "))
+            if income < 0: raise ValueError
+            break
+        except:
+            print("Invalid. Enter only a number.")
+    expenses = []
+    print("Enter expenses (type '0' or 'done' to stop):")
+    while True:
+        try:
+            e = input("Expense: ")
+            if e in ('0', 'done'): break
+            e = float(e)
+            if e < 0: raise ValueError
+            expenses.append(e)
+        except:
+            print("Invalid. Enter only a number.")
+    print(f"\nIncome: ${income:.2f}\nExpenses: ${sum(expenses):.2f}\nRemaining: ${income - sum(expenses):.2f}")
+    print("\nExpense List:")
+    for i, e in enumerate(expenses, 1): print(f"{i}. ${e:.2f}")
+    print("\nCompleted by, Alex Johnson")
+
+main()
