@@ -1,0 +1,41 @@
+from random import randrange
+
+def play_game():
+    random_number = randrange(0, 100)
+    
+    attempts = 0
+    max_attempts = 10  
+
+    print(   )
+    print("Can you guess the number thinking of between 1 and 100?")
+    print(f"You only have {max_attempts}trys to figure out the number that I am thinking of.\n")
+    
+    while attempts < max_attempts:
+        guess = int(input(f"Guess #{attempts + 1}: Enter your guess: "))
+        attempts += 1 
+
+        if guess == random_number:
+            print(f"Hmmmm...You've figured it out this time. It only took you {attempts} trys Try again to do it in less.")
+            break
+        elif guess < random_number:
+            print("That number is too low, keep trying..")
+        else:
+            print("That number is too high! Only a few trys left.")
+        
+        if attempts == max_attempts:
+            print(f"I knew I was better than you. You used all {max_attempts} trys. obviously the number was {random_number}.")
+
+    while True:
+        play_again = input("Do you want to try again? (y/n): ").lower()
+        if play_again == 'y':
+            play_game() 
+            break
+        elif play_again == 'n':
+            print("Better luck next time!")
+            break
+        else:
+            print("That isnt a valid responce type 'y' or 'n'.")
+
+play_game()
+
+print("Completed by, Alex Johnson")
